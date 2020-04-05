@@ -29,8 +29,13 @@ class ShortlinkHandler extends RootHandler {
             return;
         }
 
-        if ($this->cdn->doesObjectExist($this->settings['spaces']['bucket'], "/{$params['slug']}")) {
-            Http\redirect("{$this->settings['spaces']['cdnUrl']}/{$params['slug']}");
+        if ($this->cdn->doesObjectExist(
+            $this->settings['spaces']['bucket'],
+            "{$this->settings['spaces']['publicRoot']}{$params['slug']}")
+        ) {
+            Http\redirect(
+                "{$this->settings['spaces']['cdnUrl']}/{$this->settings['spaces']['publicRoot']}{$params['slug']}"
+            );
             return;
         }
 

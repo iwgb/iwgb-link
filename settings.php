@@ -30,5 +30,6 @@ return [
         'region'      => 'ams3',
         'bucket'      => 'iwgb',
         'cdnUrl'      => 'https://cdn.iwgb.org.uk',
+        'publicRoot'  => 'bucket/',
     ],
 ];
