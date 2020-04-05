@@ -14,9 +14,9 @@ http\post('/api/callback/typeform/{operation}', new Handler\TypeformCallback($c)
 
 http\get('/api/callback/token/{token}', new Handler\TokenCallback($c));
 
-http\get('/{slug}', new Handler\ShortlinkHandler($c));
-
 http\get('/api/health', new Handler\Health($c));
+
+http\get('/{slug}', new Handler\ShortlinkHandler($c));
 
 if (!Router\get(http\DID_MATCH, false)) {
     Handler\RootHandler::notFound($c['settings']);

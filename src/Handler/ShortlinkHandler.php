@@ -3,7 +3,7 @@
 namespace Iwgb\Link\Handler;
 
 use Guym4c\Airtable\AirtableApiException;
-use Siler\Http\Response;
+use Siler\Http;
 
 class ShortlinkHandler extends RootHandler {
 
@@ -16,10 +16,10 @@ class ShortlinkHandler extends RootHandler {
                         ->getRecords();
 
         if (count($resource) > 0) {
-            Response\redirect($resource[0]->URL);
+            Http\redirect($resource[0]->URL);
         } else {
             $path = str_replace('_', '/', $params['slug']);
-            Response\redirect("https://cdn.iwgb.org.uk/bucket/{$path}");
+            Http\redirect("https://cdn.iwgb.org.uk/bucket/{$path}");
         }
     }
 }

@@ -8,7 +8,7 @@ use Guym4c\TypeformAPI\Typeform;
 use Iwgb\Link\MailgunEmailFactory;
 use Pimple\Container;
 use Psr\Http\Message\ServerRequestInterface;
-use Siler\Http\Response;
+use Siler\Http;
 
 abstract class RootHandler {
 
@@ -40,7 +40,7 @@ abstract class RootHandler {
     }
 
     public static function notFound(array $settings): void {
-        Response\redirect($settings['defaultUrl']);
+        Http\redirect($settings['defaultUrl']);
     }
 
 }
