@@ -27,7 +27,14 @@ class TokenCallback extends RootHandler {
 
             switch ($operation) {
                 case 'create':
-                    $this->airtable->create('Shortlinks', $action);
+                    $resources = $this->airtable->search('Shortlinks', 'Slug', $action['slug'])
+                        ->getRecords();
+                    if (!empty($resources)) {
+                        $this->airtable->create('Shortlinks', $action);
+                    } else {
+                        self::fail();
+                        return;
+                    }
                     break;
                 case 'delete':
                     $resource = $this->airtable->search('Shortlinks', 'Slug', $action['slug'])

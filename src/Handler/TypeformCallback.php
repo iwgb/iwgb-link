@@ -8,9 +8,9 @@ use Siler\Http\Response;
 
 class TypeformCallback extends RootHandler {
 
-    private const TOKEN_LIFETIME = 60 * 5; // 5 minutes
+    private const TOKEN_LIFETIME = 60 * 15; // 15 minutes
 
-    private const EMAIL_TEXT = "Hi there,\n\nPlease click the link below to %action% the shortlink %slug%:\n\n%url%\n\nThanks!\n\nbeep boop";
+    private const EMAIL_TEXT = "Hi there,\n\nPlease click the link below to %action% the shortlink %slug%:\n\n%url%\n\nbtw: the link will expire 15 minutes from now.\n\nThanks!\n\nbeep boop";
 
     public function __invoke(array $params): void {
 
