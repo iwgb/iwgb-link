@@ -9,7 +9,8 @@
         "mailgun/mailgun-php": "^3.0",
         "guym4c/typeform-api": "^0.2.2",
         "php-http/curl-client": "^2.1",
-        "ramsey/uuid": "^4.0"
+        "ramsey/uuid": "^4.0",
+        "aws/aws-sdk-php": "^3.134"
     },
     "autoload": {
         "psr-4": {

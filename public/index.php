@@ -16,7 +16,7 @@ http\get('/api/callback/token/{token}', new Handler\TokenCallback($c));
 
 http\get('/api/health', new Handler\Health($c));
 
-http\get('/{slug}', new Handler\ShortlinkHandler($c));
+http\get('/(?<slug>[a-z0-9-_\/\.]+)', new Handler\ShortlinkHandler($c));
 
 if (!Router\get(http\DID_MATCH, false)) {
     Handler\RootHandler::notFound($c['settings']);

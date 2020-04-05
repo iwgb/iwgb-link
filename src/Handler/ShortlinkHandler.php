@@ -2,10 +2,19 @@
 
 namespace Iwgb\Link\Handler;
 
+use Aws\S3\S3Client;
 use Guym4c\Airtable\AirtableApiException;
+use Pimple\Container;
 use Siler\Http;
 
 class ShortlinkHandler extends RootHandler {
+
+    private S3Client $cdn;
+
+    public function __construct(Container $c) {
+        parent::__construct($c);
+        $this->cdn = $c['cdn'];
+    }
 
     /**
      * @inheritDoc
@@ -17,9 +26,14 @@ class ShortlinkHandler extends RootHandler {
 
         if (count($resource) > 0) {
             Http\redirect($resource[0]->URL);
-        } else {
-            $path = str_replace('_', '/', $params['slug']);
-            Http\redirect("https://cdn.iwgb.org.uk/bucket/{$path}");
+            return;
         }
+
+        if ($this->cdn->doesObjectExist($this->settings['spaces']['bucket'], "/{$params['slug']}")) {
+            Http\redirect("{$this->settings['spaces']['cdnUrl']}/{$params['slug']}");
+            return;
+        }
+
+        $this->renderNotFound();
     }
 }
