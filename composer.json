@@ -1,0 +1,19 @@
+{
+    "require": {
+        "leocavalcante/siler": "^1.7.2",
+        "ext-json": "*",
+        "shrikeh/teapot": "^2.3",
+        "pimple/pimple": "^3.2",
+        "guym4c/airtable-client": "^2.3.0",
+        "laminas/laminas-diactoros": "^2.2",
+        "mailgun/mailgun-php": "^3.0",
+        "guym4c/typeform-api": "^0.2.2",
+        "php-http/curl-client": "^2.1",
+        "ramsey/uuid": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Iwgb\\Link\\": "src/"
+        }
+    }
+}
