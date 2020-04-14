@@ -21,13 +21,13 @@ class ShortlinkHandler extends RootHandler {
      * @throws AirtableApiException
      */
     public function __invoke(array $params): void {
-        $resource = $this->airtable->search('Shortlinks', 'Slug', $params['slug'])
-                        ->getRecords();
+//        $resource = $this->airtable->search('Shortlinks', 'Slug', $params['slug'])
+//                        ->getRecords();
 
-        if (count($resource) > 0) {
-            Http\redirect($resource[0]->URL);
-            return;
-        }
+//        if (count($resource) > 0) {
+//            Http\redirect($resource[0]->URL);
+//            return;
+//        }
 
         if ($this->cdn->doesObjectExist(
             $this->settings['spaces']['bucket'],
