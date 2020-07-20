@@ -11,6 +11,4 @@ return (new \Pimple\Container([
 ]))->register(new Provider\AirtableProvider())
     ->register(new Provider\DoctrineCacheProvider())
     ->register(new Provider\DiactorosPsr7Provider())
-    ->register(new Provider\MailgunEmailProvider())
-    ->register(new Provider\TypeformProvider())
     ->register(new Provider\SpacesCdnProvider());
