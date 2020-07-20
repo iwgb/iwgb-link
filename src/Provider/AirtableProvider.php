@@ -16,7 +16,7 @@ class AirtableProvider implements ServiceProviderInterface {
         $c['airtable'] = fn (Container $c): Airtable => new Airtable(
             $c['settings']['airtable']['key'],
             $c['settings']['airtable']['base'],
-            new FilesystemCache(APP_ROOT . "/var/cache/airtable"),
+            new FilesystemCache(APP_ROOT . '/var/cache/airtable'),
             ['Shortlinks'],
             'https://airtable.iwgb.org.uk/v0',
             ['X-Proxy-Auth' => $c['settings']['airtable']['proxyKey']],

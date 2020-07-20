@@ -4,11 +4,10 @@ namespace Iwgb\Link\Handler;
 
 use Doctrine\Common\Cache\CacheProvider;
 use Guym4c\Airtable\Airtable;
-use Guym4c\TypeformAPI\Typeform;
-use Iwgb\Link\MailgunEmailFactory;
 use Pimple\Container;
 use Psr\Http\Message\ServerRequestInterface;
 use Siler\Http;
+use Siler\Http\Response;
 
 abstract class RootHandler {
 
@@ -18,18 +17,12 @@ abstract class RootHandler {
 
     protected CacheProvider $cache;
 
-    protected MailgunEmailFactory $mailgun;
-
-    protected Typeform $typeform;
-
     protected array $settings;
 
     public function __construct(Container $c) {
         $this->airtable = $c['airtable'];
         $this->request = $c['request'];
         $this->cache = $c['cache'];
-        $this->mailgun = $c['mailgun'];
-        $this->typeform = $c['typeform'];
         $this->settings = $c['settings'];
     }
 
@@ -41,6 +34,12 @@ abstract class RootHandler {
 
     public static function notFound(array $settings): void {
         Http\redirect($settings['defaultUrl']);
+    }
+
+    protected static function render(string $fileName, string $url = ''): void {
+        $html = file_get_contents(APP_ROOT . "/html/{$fileName}");
+        $html = str_replace('%URL%', $url, $html);
+        Response\html($html);
     }
 
 }
