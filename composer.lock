@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ac6a60816899aa2aa7b34ccf627d4225",
+    "content-hash": "b98e826ca935640b1da4ea0a1a57d992",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -323,16 +323,16 @@
         },
         {
             "name": "guym4c/airtable-client",
-            "version": "v2.3.0",
+            "version": "v2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guym4c/airtable-client.git",
-                "reference": "72aa76a49a4613f31e4a7e84253f5151a7e63eb7"
+                "reference": "e40cc31e178361d1109f55b378e64cc00adf0b95"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guym4c/airtable-client/zipball/72aa76a49a4613f31e4a7e84253f5151a7e63eb7",
-                "reference": "72aa76a49a4613f31e4a7e84253f5151a7e63eb7",
+                "url": "https://api.github.com/repos/guym4c/airtable-client/zipball/e40cc31e178361d1109f55b378e64cc00adf0b95",
+                "reference": "e40cc31e178361d1109f55b378e64cc00adf0b95",
                 "shasum": ""
             },
             "require": {
@@ -369,7 +369,7 @@
                 "api",
                 "client"
             ],
-            "time": "2020-03-29T12:17:16+00:00"
+            "time": "2020-04-08T23:59:50+00:00"
         },
         {
             "name": "guym4c/typeform-api",
@@ -2190,5 +2190,6 @@
     "platform": {
         "ext-json": "*"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
