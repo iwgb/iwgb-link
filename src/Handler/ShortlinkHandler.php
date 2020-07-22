@@ -21,8 +21,7 @@ class ShortlinkHandler extends RootHandler {
      * @throws AirtableApiException
      */
     public function __invoke(array $params): void {
-        $resource = $this->airtable->search('Shortlinks', 'Slug', $params['slug'])
-                        ->getRecords();
+        $resource = $this->airtable->find('Shortlinks', 'Slug', $params['slug']);
 
         if (count($resource) > 0) {
             self::render('redirect.html', $resource[0]->URL);

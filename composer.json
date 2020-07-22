@@ -4,7 +4,7 @@
         "ext-json": "*",
         "shrikeh/teapot": "^2.3",
         "pimple/pimple": "^3.2",
-        "guym4c/airtable-client": "^2.3.0",
+        "guym4c/airtable-client": "^2.4.1",
         "laminas/laminas-diactoros": "^2.2",
         "mailgun/mailgun-php": "^3.0",
         "guym4c/typeform-api": "^0.2.2",
